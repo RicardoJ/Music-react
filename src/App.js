@@ -1,9 +1,16 @@
-import React ,{useState, useEffect, Fragment} from 'react';
-
+import React, { useState, useEffect, Fragment } from 'react';
+import Form from './components/Form';
 
 function App() {
+
+  const [artist, addArtist] = useState('');
+  const [lyric, addLyric] = useState([]);
+  const [information, addInformation] = useState({});
+
   return (
- <p>hola</p>
+    <Fragment>
+      <Form/>
+    </Fragment>
   );
 }
 
