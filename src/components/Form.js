@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
 
 function Form() {
+
+    const [search, addSearch] = useState({
+        artist: '',
+        song: ''
+    });
+    const updateState = e =>{
+        addSearch({
+            ...search,
+            [e.target.name] : e.target.value
+        })
+    }
+    console.log(search)
+
     return (
 
         <div className="bg-info">
@@ -17,8 +30,9 @@ function Form() {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="artista"
+                                            name="artist"
                                             placeholder="Nombre Artista"
+                                            onChange ={updateState}
                                             required
                                         />
                                     </div>
@@ -29,8 +43,9 @@ function Form() {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="cancion"
+                                            name="song"
                                             placeholder="Nombre Canción"
+                                            onChange ={updateState}
                                             required
                                         />
                                     </div>
