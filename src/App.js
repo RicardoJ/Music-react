@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import Form from './components/Form';
 import axios from 'axios';
+import Song from './components/Song';
 function App() {
 
   const [artist, addArtist] = useState('');
@@ -26,7 +27,9 @@ function App() {
 
           </div>
           <div className = "col-md-6">
-            
+            <Song
+            lyric = {lyric}
+            />
             </div>
         </div>
       </div>
