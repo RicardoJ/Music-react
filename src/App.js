@@ -11,18 +11,14 @@ function App() {
   const queryAPILyric = async search => {
     const { artist, song } = search;
     const url = `https://api.lyrics.ovh/v1/${artist}/${song}`;
-
     const result = await axios(url);
     addArtist(artist);
     addLyric(result.data.lyrics);
   }
-
   const queryAPIInfo = async () => {
     const url = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
     const result = await axios(url);
-
     addInformation(result.data.artists[0]);
-
   }
 
   useEffect(
