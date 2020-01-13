@@ -2,6 +2,8 @@ import React, { useState, useEffect, Fragment } from 'react';
 import Form from './components/Form';
 import axios from 'axios';
 import Song from './components/Song';
+import Information from './components/Information';
+
 function App() {
 
   const [artist, addArtist] = useState('');
@@ -16,9 +18,11 @@ function App() {
     addLyric(result.data.lyrics);
   }
   const queryAPIInfo = async () => {
-    const url = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
-    const result = await axios(url);
-    addInformation(result.data.artists[0]);
+    if (artist) {
+      const url = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
+      const result = await axios(url);
+      addInformation(result.data.artists[0]);
+    }
   }
 
   useEffect(
@@ -34,7 +38,9 @@ function App() {
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-6">
-
+            <Information
+              information={information}
+            />
           </div>
           <div className="col-md-6">
             <Song
