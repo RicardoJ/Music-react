@@ -7,9 +7,15 @@ function App() {
   const [lyric, addLyric] = useState([]);
   const [information, addInformation] = useState({});
 
+  const queryAPILyric = search =>{
+        console.log(search)
+  }
+
   return (
     <Fragment>
-      <Form/>
+      <Form
+      queryAPILyric ={queryAPILyric}
+      />
     </Fragment>
   );
 }
