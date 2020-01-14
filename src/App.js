@@ -9,13 +9,14 @@ function App() {
   const [artist, addArtist] = useState('');
   const [lyric, addLyric] = useState([]);
   const [information, addInformation] = useState({});
+ 
 
   const queryAPILyric = async search => {
     const { artist, song } = search;
     const url = `https://api.lyrics.ovh/v1/${artist}/${song}`;
     const result = await axios(url);
     addArtist(artist);
-    addLyric(result.data.lyrics);
+    addLyric(result.data.lyrics);   
   }
   const queryAPIInfo = async () => {
     if (artist) {
@@ -24,7 +25,6 @@ function App() {
       addInformation(result.data.artists[0]);
     }
   }
-
   useEffect(
     () => {
       queryAPIInfo();
@@ -35,6 +35,7 @@ function App() {
       <Form
         queryAPILyric={queryAPILyric}
       />
+
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-6">
